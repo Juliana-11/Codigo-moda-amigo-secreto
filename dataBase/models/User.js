@@ -1,4 +1,5 @@
-const { sequelize } = require(".");
+const path = require('path');
+const sequelize = require('sequelize')
 
 module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
