@@ -2,7 +2,7 @@
 mainController = {
     // index: renders home page
     index: (req, res) => {
-        res.render('index');
+        res.render('home');
     }
 }
 // Controller export

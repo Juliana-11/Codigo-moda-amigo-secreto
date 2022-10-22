@@ -20,3 +20,8 @@ const userRouter = require('./routes/user');
 // routes
 app.use('/', mainRouter);
 app.use('/user', userRouter);
+
+// error message
+app.use((req, res, next)=>{
+    res.status(404).render('error404');
+});
