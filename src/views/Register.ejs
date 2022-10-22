@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
+    <%-include('./partials/head', {title: "Register"})%> 
 <body>
-    <h1>register form</h1>
+    <%-include('./partials/header')%> 
+    <main>
+        <form action="/user/register" method="post" class="formRegister">
+            <label for="name" >Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Mencioname tu nombre">
+
+            <label for="lastName">Apellido</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Mencioname tu Apellido">
+
+            <label for="userAs">Nombre de participante</label>
+            <input type="text" name="userAs" id="userAs" placeholder="Nombrate para el juego">
+
+            <label for="password">contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Create una contraseña">
+
+            <label for="confirmPassword">Confirmación de contraseña</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirma tu contraseña">
+
+            <label for="preferences">Gustos</label>
+            <textarea name="preferences" id="preferences" cols="40" rows="5" placeholder="¿Con qué quieres que te endulzen?"></textarea>
+
+            <label for="dislike">Disgustos</label>
+            <textarea name="dislikes" id="dislikes" cols="40" rows="5" placeholder="¿Que no quisieras que obsequiaran?"></textarea>
+
+            <label for="allergies">Alergias</label>
+            <textarea name="allergies" id="allergies" cols="40" rows="5" placeholder="¿Eres alérgico a algo?"></textarea>
+            
+            <label for="role">Lider</label>
+            <input type="checkbox" name="role" id="role" value="Lider">
+
+            <label for="role2">Participante</label>
+            <input type="checkbox" name="role2" id="role2">
+        </form>
+    </main>
+    <%-include('./partials/footer')%> 
 </body>
 </html>
