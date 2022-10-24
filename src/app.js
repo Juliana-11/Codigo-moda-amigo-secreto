@@ -15,11 +15,11 @@ app.set('views', './src/views');
 
 // routers
 const mainRouter = require('./routes/main');
-const userRouter = require('./routes/user');
+const groupRouter = require('./routes/group');
 
 // routes
 app.use('/', mainRouter);
-app.use('/user', userRouter);
+app.use('/group', groupRouter);
 
 // error message
 app.use((req, res, next)=>{
