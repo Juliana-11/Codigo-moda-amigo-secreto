@@ -10,12 +10,12 @@ module.exports = (sequelize, dataTypes) => {
             unique: true,
             allowNull: false
         },
-        User_id: {
+        user_id: {
             foreignKey: true,
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        Group_id: {
+        group_id: {
             foreignKey: true,
             type: dataTypes.INTEGER,
             allowNull: false

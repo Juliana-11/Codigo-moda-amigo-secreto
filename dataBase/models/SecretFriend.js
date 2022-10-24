@@ -1,4 +1,6 @@
 const { sequelize } = require(".");
+const models = require('../models');
+const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Secret Friends'
@@ -9,13 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             unique: true,
             allowNull: false,
         },
-        User1_id: {
-            foreignKey: true,
-            type: dataTypes.INTEGER,
-            unique: true,
-            allowNull: false,
-        },
-        User2_id: {
+        user_id: {
             foreignKey: true,
             type: dataTypes.INTEGER,
             unique: true,

@@ -1,5 +1,8 @@
 const path = require('path');
 const sequelize = require('sequelize')
+const models = require('../models');
+const Group = require('./Group');
+const SecretFriend = require('./SecretFriend');
 
 module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
@@ -45,5 +48,20 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.belongsToMany(Group, {
+            as: 'Group',
+            through: 'GroupMember',
+            foreignKey: 'user_id',
+            otherKey: 'group_id',
+            timestamps: false
+        })
+        User.belongsTo(SecretFriend, {
+            foreignKey: 'user_id',
+            as: 'SecretFriend'
+        })
+    }
+
     return User;
 }
