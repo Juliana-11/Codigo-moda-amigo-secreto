@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include('./partials/head')%> 
+    <%-include('./partials/head', {title: 'Upss...'})%> 
 <body>
     <%-include('./partials/header')%> 
-
-    Soy error
-
+    <section>
+        <img src="/images/error-404.png" alt="404">
+        <h2>Upss... parece que buscas algo que no existe!!</h2>
+        <a href="/">Haz click aqui para volver al home</a>
+    </section>
     <%-include('./partials/footer')%> 
 </body>
 </html>
