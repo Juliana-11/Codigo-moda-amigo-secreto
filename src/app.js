@@ -16,12 +16,14 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 // routers
-const mainRouter = require('./routes/main');
-const groupRouter = require('./routes/group');
+const mainRouter = require('./routes/mainRoutes');
+const groupRouter = require('./routes/groupRoutes');
+const UserRouter = require('./routes/UserRoutes');
 
 // routes
 app.use('/', mainRouter);
 app.use('/group', groupRouter);
+app.use('/user', UserRouter)
 
 // error message
 app.use((req, res, next)=>{

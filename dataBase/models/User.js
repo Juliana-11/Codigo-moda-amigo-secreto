@@ -1,18 +1,11 @@
-const path = require('path');
-const sequelize = require('sequelize')
-const models = require('../models');
-const Group = require('./Group');
-const SecretFriend = require('./SecretFriend');
-
-module.exports = (sequelize, dataTypes) => {
+module.exports = (Sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
-        id: {
+        idUsuario: {
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            unique: true,
-            allowNull: false,
-            type: dataTypes.INTEGER
+            allowNull: false
         },
         name: {
             type: dataTypes.STRING,
@@ -24,6 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         userName: {
             type: dataTypes.STRING,
+            validate:{unique: true},
             allowNull: false
         },
         password: {
@@ -44,23 +38,28 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tableName: 'Users',
+        tableName: 'users',
         timestamps: false
     }
-    const User = sequelize.define(alias, cols, config);
+    const User = Sequelize.define(alias, cols, config);
 
     User.associate = function(models){
-        User.belongsToMany(Group, {
-            as: 'Group',
-            through: 'GroupMember',
-            foreignKey: 'user_id',
-            otherKey: 'group_id',
+        User.belongsToMany(models.Group, {
+            as: "Group",
+            through: "GroupMembers",
+            foreignKey: "user_id",
+            otherKey: "group_id",
             timestamps: false
         })
-        User.belongsTo(SecretFriend, {
-            foreignKey: 'user_id',
-            as: 'SecretFriend'
+        User.hasMany(models.SecretFriend, {
+            as: "user_id1",
+            foreignKey: "idUsuario",
         })
+        User.hasMany(models.SecretFriend, {
+            as: "user_id2",
+            foreignKey: "idUsuario",
+        })
+        
     }
 
     return User;

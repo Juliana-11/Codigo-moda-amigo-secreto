@@ -31,7 +31,7 @@ mainController = {
 
     },
     // delete: deletes profile
-    delete: (req, res) => {
+    deleteProfile: (req, res) => {
 
     },
     // update: processes profile editions
