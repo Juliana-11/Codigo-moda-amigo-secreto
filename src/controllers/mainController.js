@@ -1,7 +1,9 @@
+const db = require('.../dataBase/models/index');
 // Controller object
 mainController = {
     // index: renders home page
     index: (req, res) => {
+        db.SecretFriend.findByPk
         res.render('home');
     },
     // profile: shows user information
