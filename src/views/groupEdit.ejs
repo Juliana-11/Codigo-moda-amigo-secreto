@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('./partials/head', {title: 'Group edit'})%>
+<body>
+    <header>
+        <%-include('./partials/header')%> 
+    </header>
+    <form action="/group/edit/" method="post" enctype="multipart/form-data">
+        <var>
+            <label for="name">Nombre del grupo</label>
+            <input type="text" name="groupName" id="name" value="Nombre del grupo" required>
+        </var>
+        <var>
+            <label for="description">Descripcion del grupo</label>
+            <input type="text" name="groupDescription" id="description" value="Descripcion del grupo">
+        </var>
+        <var>
+            <label for="groupImage">Imagen del grupo</label>
+            <input type="file" accept="png, jpg, jpeg" name="groupPicture">
+        </var>
+        <var>
+            <button type="submit">Actualizar</button>
+            <button type="reset">Vaciar</button>
+        </var>
+    </form>
+    
+    <footer>
+        <%-include('./partials/footer')%> 
+    </footer>
+    
+</body>
+</html>
