@@ -11,7 +11,7 @@ router.post('/register/', mainController.signIn);
 router.get('/login', mainController.login);
 router.post('/login/', mainController.session);
 router.get('/profileEdit', mainController.profileEdit);
-profile.delete('/profileEdit/delete', mainController.deleteProfile);
+router.delete('/profileEdit/delete', mainController.deleteProfile);
 router.put('/profileEdit/', mainController.update);
 router.get('/adminProfile', mainController.adminProfile);
 

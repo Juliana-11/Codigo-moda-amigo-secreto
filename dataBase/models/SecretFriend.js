@@ -1,27 +1,22 @@
-const { sequelize } = require(".");
-const models = require('../models');
-const User = require("./User");
-
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Secret Friends'
+    let alias = 'SecretFriend'
     let cols = {
-        id: {
-            primaryKey: true,
+        idSecretFriend: { 
             type: dataTypes.INTEGER,
-            unique: true,
+            primaryKey: true,
             allowNull: false,
+            autoIncrement: true,
         },
         user_id: {
-            foreignKey: true,
             type: dataTypes.INTEGER,
-            unique: true,
+            foreignKey: true,
             allowNull: false,
         }
     }
     let config = {
-        tableName: 'Secret Friends',
+        tableName: 'secretfriends',
         timestamps: false
     }
-    const SecretFriend = sequelize.define(alias, cols, config);
-    return SecretFriend;
+    const SecretFriends = sequelize.define(alias, cols, config);
+    return SecretFriends;
 }

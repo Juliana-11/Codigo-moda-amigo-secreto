@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('../partials/head', {title: "home"})%> 
+<body>
+    <%-include('../partials/header')%> 
+
+    <!--Prueba de funcionamiento del modelo secretFriends-->
+    <p>Parejas</p>
+    <% for( let i = 0; i < friend.length; i++ ) { %>
+        <%= friend[i].user_id %>
+    <% } %>
+
+    <%-include('../partials/footer')%> 
+</body>
+</html>
