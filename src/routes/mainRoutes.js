@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const {body} = require('express-validator');
 const mainController = require('../controllers/mainController')
 
 // Config multer
@@ -20,8 +19,37 @@ const mainController = require('../controllers/mainController')
 const upload = multer({storage: multerDiskStorage});*/
 
 //Validations 
-const Validations = [
-    body('firstName')
+const {check} = require('express-validator');
+const db = require('../../dataBase/models')
+const validations = [
+    check('firstName')
+        .notEmpty().withMessage('Ingresa tu nombre').bail()
+        .isLength({min:3}).withMessage('No se puede registrar un nombre de menos de 3 caracteres'),
+    check('lastName')
+        .notEmpty().withMessage('Ingresa tu apellido').bail()
+        .isLength({min:3}).withMessage('No se puede registrar un apellido de menos de 3 caracteres'),
+    check('userAs')
+        .notEmpty().withMessage('Identificate para jugar').bail()
+        .isLength({min:8}).withMessage('Debe contener minimo 8 caracteres')
+        .custom(
+            (value,{req})=> {
+                let usedUser = false ;
+                for (let i = 0; i < db.User.length; i++) {
+                    if(db.User[i].userName === req.body.userAs){
+                        usedUser = true
+                    }
+                }
+
+                if (usedUser === true){
+                    throw new Error('* Usuario ya registrado');
+                }
+                return true
+            } 
+        ),
+    check('password')
+        .notEmpty().withMessage('Create una contraseña').bail()
+        .isLength({min:8}).withMessage('Debe contener minimo  caracteres')
+        .equals('password', 'confirmPassword').withMessage('La contraseña no coincide'),
 ]
 
 // Routes

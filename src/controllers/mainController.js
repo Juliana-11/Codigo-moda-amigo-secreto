@@ -1,6 +1,6 @@
 //requirements and installations
 //const {check} = require('express-validator');
-//const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../../dataBase/models'); 
 const User = require('../../dataBase/models/User');
@@ -79,18 +79,44 @@ mainController = {
 
     // signIn: saves registration data
     signIn: (req, res) => {
-        Users.create({
-            name: req.body.firstName,
-            lastName: req.body.lastName,
-            userName: req.body.userAs,
-            password: bcrypt.hashSync(req.body.password, 10),
-            preferences: req.body.preferences,
-            dislikes: req.body.dislikes,
-            allergies: req.body.allergies,
-            admin: req.body.role === "Lider" ? true : false
-        });
-        res.redirect('/')
+        let errors = validationResult(req)
+
+        /*<<<< When error is empty >>>>*/
+        if(errors.isEmpty()){
+            Users.create({
+                name: req.body.firstName,
+                lastName: req.body.lastName,
+                userName: req.body.userAs,
+                password: bcrypt.hashSync(req.body.password, 10),
+                preferences: req.body.preferences,
+                dislikes: req.body.dislikes,
+                allergies: req.body.allergies,
+            });
+
+        /*<<<< Validation UserAs >>>>*/
+            let usedUser = false;
+            for (let i = 0; i < Users.length; i++) {
+                if(Users[i].userName === req.body.userAs){
+                    usedUser = true
+                }
+                
+                if(usedUser === true){
+                let existingUserMessage = { mgs: 'Ya existe un usuario registrado con esa descripción' }
+                let oldData = req.body;
+
+                res.render('/register',{msgError: existingUserMessage, oldData});
+                }
+            }
+
+        /*<<<< when error not empty >>>>*/
+        }else {
+            res.render('/register', {errors: errors.mapped(), old: req.body});
+        }
+
+        /*<<<< After creating >>>>*/
+        res.redirect('/login')
     },
+
     // login: renders login form
     login: (req, res) => {
         res.render('login');
