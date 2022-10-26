@@ -1,23 +1,49 @@
-// requirements and installations
+// Requirements and installations
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
+const {body} = require('express-validator');
 const mainController = require('../controllers/mainController')
 
-// routes
-router.get('/', mainController.index);
-router.get('/user', mainController.profile);
+// Config multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb){
+        let folder = path.resolve(__dirname, '../public/img')
+        Cb(null, folder );
+    },
+    Filename: function (req, file, cb){
+        let imgName = Date.now() + path.extname(file.originalname)
+        Cb(null, imgName);
+    }
+})
+const upload = multer({storage: multerDiskStorage});
+
+//Validations 
+const Validations = [
+    body('firstName')
+]
+
+// Routes
+    // Show your secret friend information
+router.get('/myFriend/:id', mainController.index);
+
+    //Show my information, the edit form, update and delete 
+router.get('/profile/:id', mainController.profile);
+router.get('/profileEdit/:id', mainController.profileEdit);
+router.post('/profileEdit/:id', mainController.update);
+router.post('/profile/delete/:id', mainController.deleteProfile);
+
+    //Show the registration form and Create member
 router.get('/register', mainController.register);
-router.post('/register/', mainController.signIn);
+router.post('/register', mainController.signIn);
+
+    //Show the login form and session init
 router.get('/login', mainController.login);
 router.post('/login/', mainController.session);
-router.get('/profileEdit', mainController.profileEdit);
-<<<<<<< HEAD:src/routes/mainRoutes.js
-router.delete('/profileEdit/delete', mainController.deleteProfile);
-=======
-//profile.delete('/profileEdit/delete', mainController.deleteProfile);
->>>>>>> c62f6b47f6723dc30feda83c39d030f6a3473f8b:src/routes/main.js
-router.put('/profileEdit/', mainController.update);
+
+    //Admin View
 router.get('/adminProfile', mainController.adminProfile);
 
-// router export
+// Router export
 module.exports = router;

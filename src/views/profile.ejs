@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include('./partials/head')%> 
+    <%-include('./partials/head', {title: "Profile"})%> 
 <body>
     <%-include('./partials/header')%> 
 
-    Soy profile
+    <div class="containerProfile">
+        <div>
+            <p>foto</p>
+        </div>
+        <div>
+            <h2>Perfil de:  <%= user.name + " " + user.lastName %></h2> 
+        </div>
+        <a href="/profileEdit/<%=user.idUsuario%> "><button>Editar</button></a>
+        <form action="/profile/delete/<%= user.idUsuario %>" method="post"><button type="submit">Eliminar</button></form>
+    </div>
 
     <%-include('./partials/footer')%> 
 </body>

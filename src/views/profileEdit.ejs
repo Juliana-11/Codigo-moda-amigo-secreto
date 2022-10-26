@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include('./partials/head')%> 
+    <%-include('./partials/head', {title: "Edit"})%> 
 <body>
     <%-include('./partials/header')%> 
 
-    Soy profile edit
+    <main>
+        <form action="/profileEdit/<%=user.idUsuario%>" method="POST" class="formRegister">
+
+            <label for="userName" >Nombre</label>
+            <input type="text" name="firstName" id="userName" placeholder="Mencioname tu nombre" value="<%=user.name%>">
+
+            <label for="lastName">Apellido</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Mencioname tu Apellido" value="<%=user.lastName%>">
+
+            <label for="userAs">Nombre de participante</label>
+            <input type="text" name="userAs" id="userAs" placeholder="Nombrate para el juego" value="<%=user.userName%>">
+
+            <label for="newPassword">Contraseña actual</label>
+            <input type="Password" name="newPassword" id="newPassword" placeholder="Recuerdame la actual">
+
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Create una contraseña">
+
+            <label for="confirmPassword">Confirmación de contraseña</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirma tu contraseña">
+
+            <label for="preferences">Gustos</label>
+            <input type="text" name="preferences" id="preferences" cols="40" rows="5" placeholder="¿Con qué quieres que te endulzen?" value="<%= user.preferences %>"></input>
+
+            <label for="dislike">Disgustos</label>
+            <input type="text" name="dislikes" id="dislikes" cols="40" rows="5" placeholder="¿Que no quisieras que obsequiaran?" value="<%= user.dislikes %>"></input>
+
+            <label for="allergies">Alergias</label>
+            <input type="text" name="allergies" id="allergies" cols="40" rows="5" placeholder="¿Eres alérgico a algo?" value="<%= user.allergies %>"></input>
+
+            <label for="role">Lider</label>
+            <input type="checkbox" name="role" id="role" value="Lider">
+
+            <label for="role2">Participante</label>
+            <input type="checkbox" name="role2" id="role2" value="Participante">
+
+
+            <button type="submit">Actualizar</button>
+            <a href="/profile/<%= user.idUsuario %> "><button>Cancelar</button></a>
+        </form>
+    </main>
 
     <%-include('./partials/footer')%> 
 </body>

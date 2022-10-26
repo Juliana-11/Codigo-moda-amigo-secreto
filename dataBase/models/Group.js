@@ -9,7 +9,8 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: {
             type: dataTypes.STRING ,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     }
     let config = {
@@ -18,7 +19,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Group = sequelize.define(alias, cols, config);
 
-    Group.associate = function(models){
+    /*Group.associate = function(models){
         Group.belongsToMany(models.User, {
             as: "Members",
             through: "GroupMembers",
@@ -26,6 +27,6 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'user_id',
             timestamps: false
         })
-    }
+    }*/
     return Group;
 }

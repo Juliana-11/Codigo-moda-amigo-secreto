@@ -17,8 +17,8 @@ module.exports = (Sequelize, dataTypes) => {
         },
         userName: {
             type: dataTypes.STRING,
-            validate:{unique: true},
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         password: {
             type: dataTypes.STRING,
@@ -32,18 +32,24 @@ module.exports = (Sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: true
         },
+        allergies: {
+            type: dataTypes.STRING,
+            allowNull: true
+        },
         admin: {
             type: dataTypes.BOOLEAN,
             allowNull: false
         }
     }
+
     let config = {
         tableName: 'users',
         timestamps: false
     }
+    
     const User = Sequelize.define(alias, cols, config);
 
-    User.associate = function(models){
+    /*User.associate = function(models){ 
         User.belongsToMany(models.Group, {
             as: "Group",
             through: "GroupMembers",
@@ -51,16 +57,16 @@ module.exports = (Sequelize, dataTypes) => {
             otherKey: "group_id",
             timestamps: false
         })
-        User.hasMany(models.SecretFriend, {
+        User.hasMany(models.Partner, {
             as: "user_id1",
             foreignKey: "idUsuario",
         })
-        User.hasMany(models.SecretFriend, {
+        User.hasMany(models.Partner, {
             as: "user_id2",
             foreignKey: "idUsuario",
         })
         
-    }
+    }*/
 
     return User;
 }

@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'SecretFriend'
+    let alias = 'Partner'
     let cols = {
         idSecretFriend: { 
             type: dataTypes.INTEGER,
@@ -18,5 +18,16 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const SecretFriends = sequelize.define(alias, cols, config);
+
+    /*SecretFriends.associate = function(models){
+        SecretFriends.belongsTo(models.User, {
+            as: "userId1",
+            foreignKey: "user_id1",
+        })
+        SecretFriends.belongsTo(models.User, {
+            as: "userId2",
+            foreignKey: "user_id2",
+        })
+    }*/
     return SecretFriends;
 }
