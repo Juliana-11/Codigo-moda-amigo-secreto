@@ -8,10 +8,25 @@
     <form action="/group/create/" method="post" enctype="multipart/form-data">
         <label for="name">Nombre del grupo</label>
         <input type="text" name="groupName" id="name" required>
+
         <label for="description">Descripcion del grupo</label>
         <input type="text" name="groupDescription" id="">
-        <label for="groupImage">Imagen del grupo</label>
-        <input type="file" accept="png, jpg, jpeg" name="groupPicture">
+
+        <label for="groupPicture">Imagen del grupo</label>
+        <input type="file" accept="png, jpg, jpeg" id= "groupPicture" name="groupPicture">
+
+        <label for="giftDate">Dia de endulzada</label>
+        <input type="date" name="giftDate" id="giftDate">
+
+        <label for="discoveryDateDetail">Detalle del dia de endulzada</label>
+        <input type="text" name="discoveryDateDetail" id="discoveryDateDetail">
+
+        <label for="discoveryDate">Dia de descubrimiento</label>
+        <input type="date" name="discoveryDate" id="discoveryDate">
+
+        <label for="discoveryDateDetail">Detalle del dia de descubrimiento</label>
+        <input type="text" name="discoveryDateDetail" id="discoveryDateDetail">
+
         <button type="submit">Crear</button>
         <button type="reset">Vaciar</button>
     </form>

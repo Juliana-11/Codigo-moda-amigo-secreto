@@ -5,7 +5,7 @@
     <header>
         <%-include('./partials/header')%> 
     </header>
-    <form action="/group/edit/? _method = PUT"  method="post" enctype="multipart/form-data">
+    <form action="/group/edit/:id/? _method = PUT"  method="post" enctype="multipart/form-data">
         <var>
             <label for="name">Nombre del grupo</label>
             <input type="text" name="groupName" id="name" value="Nombre del grupo" required>

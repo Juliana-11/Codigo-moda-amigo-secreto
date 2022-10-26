@@ -11,11 +11,13 @@ const Users = db.User;
 const UserController = {
     list: (req, res) =>{
         Users.findAll({
-            /*include: [
+            include: [
                 {association: "Group"},
                 {association: "user_id1"},
                 {association: "user_id2"}
-            ]*/
+            ],
+            raw: true,
+            nest: true
         })
         .then(users =>{
             res.render('./tests/test', {users})
