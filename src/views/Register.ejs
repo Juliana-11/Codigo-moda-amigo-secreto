@@ -4,13 +4,20 @@
 <body>
     <%-include('./partials/header')%> 
     <main>
-        <form action="/register" method="POST" enctype="multipart/form-data" class="formRegister">
+        <form action="/register" method="POST"  class="formRegister">
 
             <label for="firstName" >Nombre</label>
             <input type="text" name="firstName" id="userName" placeholder="Mencioname tu nombre">
+            <br>
+            <% if (locals.errors && errors.firstName) { %>
+                <span style="color:red;font-size: 1vw;"><%= errors.firstName.msg %></span>
+            <% } %>
 
             <label for="lastName">Apellido</label>
             <input type="text" name="lastName" id="lastName" placeholder="Mencioname tu Apellido">
+            <% if (locals.errors && errors.lastName) { %>
+                <span style="color:red;font-size: 1vw;"><%= errors.lastName.msg %></span>
+            <% } %>
 
             <label for="userAs">Nombre de participante</label>
             <input type="text" name="userAs" id="userAs" placeholder="Nombrate para el juego">
@@ -29,12 +36,6 @@
 
             <label for="allergies">Alergias</label>
             <textarea name="allergies" id="allergies" cols="40" rows="5" placeholder="¿Eres alérgico a algo?"></textarea>
-            
-            <label for="role">Lider</label>
-            <input type="radio" name="role" id="role" value="Lider">
-
-            <label for="role2">Participante</label>
-            <input type="radio" name="role2" id="role2" value="Participante">
 
             <button type="submit">Registrarme</button>
         </form>
