@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-const db = require('.../dataBase/models/index');
-=======
 //requirements and installations
 //const {check} = require('express-validator');
 //const { validationResult } = require('express-validator');
@@ -14,15 +11,10 @@ const GroupMembers = db.GroupMember;
 const SecretFriends = db.SecretFriend;
 const Users = db.User;
 
->>>>>>> 3d4048d2dc86ee85e037fe8ca05ccb79b6cebb55
 // Controller object
 mainController = {
     // index: renders home page
     index: (req, res) => {
-<<<<<<< HEAD
-        db.SecretFriend.findByPk
-        res.render('home');
-=======
         let orderGroup = Groups.findByPk(req.params.id)
 
         let orderFriend =  Users.findByPk(req.params.id)
@@ -31,7 +23,6 @@ mainController = {
             .then(([group, user])=>{
                 res.render('home', {group, user});
             })
->>>>>>> 3d4048d2dc86ee85e037fe8ca05ccb79b6cebb55
     },
 
     // profile: shows user information

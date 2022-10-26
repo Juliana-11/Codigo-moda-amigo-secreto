@@ -7,7 +7,7 @@ const {body} = require('express-validator');
 const mainController = require('../controllers/mainController')
 
 // Config multer
-const storage = multer.diskStorage({
+/*const storage = multer.diskStorage({
     destination: function (req, file, cb){
         let folder = path.resolve(__dirname, '../public/img')
         Cb(null, folder );
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
         Cb(null, imgName);
     }
 })
-const upload = multer({storage: multerDiskStorage});
+const upload = multer({storage: multerDiskStorage});*/
 
 //Validations 
 const Validations = [
