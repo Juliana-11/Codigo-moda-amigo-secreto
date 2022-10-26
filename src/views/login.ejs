@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include('./partials/head')%> 
+    <%-include('./partials/head', {title: "Login"})%> 
 <body>
     <%-include('./partials/header')%> 
 
-    <% console.log(friends) %> 
+    <form action="/user/login/" method="post">
+        <div class="containerLogin">
+            <div>
+                <label for="UserAs">Nombre de usuario</label>
+                <input type="text" name="UserAs" id="UserAs">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password">
+                <button type="submit">Iniciar Sesion</button>
+            </div>
+            <p>¿Aun no tienes tu pareja? - <strong>Registrate</strong></p>
+        </div>
+        
+    </form>
 
     <%-include('./partials/footer')%> 
 </body>

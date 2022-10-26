@@ -4,9 +4,10 @@
 <body>
     <%-include('./partials/header')%> 
     <main>
-        <form action="/user/register" method="post" class="formRegister">
-            <label for="name" >Nombre</label>
-            <input type="text" name="name" id="name" placeholder="Mencioname tu nombre">
+        <form action="/register" method="POST" enctype="multipart/form-data" class="formRegister">
+
+            <label for="firstName" >Nombre</label>
+            <input type="text" name="firstName" id="userName" placeholder="Mencioname tu nombre">
 
             <label for="lastName">Apellido</label>
             <input type="text" name="lastName" id="lastName" placeholder="Mencioname tu Apellido">
@@ -30,10 +31,12 @@
             <textarea name="allergies" id="allergies" cols="40" rows="5" placeholder="¿Eres alérgico a algo?"></textarea>
             
             <label for="role">Lider</label>
-            <input type="checkbox" name="role" id="role" value="Lider">
+            <input type="radio" name="role" id="role" value="Lider">
 
             <label for="role2">Participante</label>
-            <input type="checkbox" name="role2" id="role2">
+            <input type="radio" name="role2" id="role2" value="Participante">
+
+            <button type="submit">Registrarme</button>
         </form>
     </main>
     <%-include('./partials/footer')%> 

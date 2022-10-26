@@ -1,6 +1,5 @@
 const path = require('path');
 const db = require('../../dataBase/models');
-const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 
 //modelos
@@ -12,11 +11,11 @@ const Users = db.User;
 const UserController = {
     list: (req, res) =>{
         Users.findAll({
-            include: [
+            /*include: [
                 {association: "Group"},
                 {association: "user_id1"},
                 {association: "user_id2"}
-            ]
+            ]*/
         })
         .then(users =>{
             res.render('./tests/test', {users})
