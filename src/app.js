@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 
 // Server configuration
 app.listen(3000, ()=> console.log('Online'));
+app.use(methodOverride('_method'));
 
 // Static resources
 app.use(express.static(path.resolve(__dirname, '../public')));
