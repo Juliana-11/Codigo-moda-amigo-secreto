@@ -4,6 +4,7 @@ const router = express.Router();
 const path = require('path');
 const groupController = require('../controllers/groupController');
 const multer = require('multer');
+const {check} = require('express-validator');
 
 // Multer configuration
 let diskStorage = multer.diskStorage({
@@ -18,12 +19,19 @@ let diskStorage = multer.diskStorage({
 })
 var upload = multer({storage: diskStorage});
 
+// validations
+let validations = {
+    groupCreation: [
+        check('groupName').notEmpty().withMessage('Debes asignar un nombre al grupo')
+    ]
+}
+
 // routes
 router.get('/', groupController.index);
 router.get('/create', groupController.create);
 router.post('/create/', upload.single('groupPicture'), groupController.store);
 router.get('/edit/:id', groupController.edit);
-router.put('/edit/:id/', groupController.update);
+router.put('/edit/:id/', validations.groupCreation, groupController.update);
 router.delete('/edit/delete', groupController.delete);
 
 // router export

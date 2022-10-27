@@ -8,15 +8,15 @@
     <form action="/group/edit/:id/? _method = PUT"  method="post" enctype="multipart/form-data">
         <var>
             <label for="name">Nombre del grupo</label>
-            <input type="text" name="groupName" id="name" value="Nombre del grupo" required>
+            <input type="text" name="groupName" id="name" value="<% group.name %>" required>
         </var>
         <var>
             <label for="description">Descripcion del grupo</label>
-            <input type="text" name="groupDescription" id="description" value="Descripcion del grupo">
+            <input type="text" name="groupDescription" id="description" value="<% group.description %>">
         </var>
         <var>
             <label for="groupImage">Imagen del grupo</label>
-            <input type="file" accept="png, jpg, jpeg" name="groupPicture">
+            <input type="file" accept="png, jpg, jpeg" name="groupPicture" value="">
         </var>
         <var>
             <button type="submit">Actualizar</button>

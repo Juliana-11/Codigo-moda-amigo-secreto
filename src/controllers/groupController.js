@@ -6,7 +6,18 @@ const {validationResult} = require('express-validator');
 groupController = {
     // index: renders group detail view
     index: (req, res) => {
-        res.render('groupIndex');
+        let Group = db.Group.findByPk(req.params.id);
+        let GroupMembers = db.GroupMembers.findAll({
+            include: [
+                {association: 'Members'},
+                {association: 'Group'}
+            ],
+            raw: true,
+            nest: true
+        })
+        Promise.all([group, groupMembers]).then((group, groupMembers) => {
+            res.render('groupIndex', {group, groupMembers})
+        })
     },
     // create: renders group creation form
     create: (req, res) => {
@@ -60,7 +71,7 @@ groupController = {
     },
     // delete: deletes groups
     delete: (req, res) => {
-        
+
     }
 }
 

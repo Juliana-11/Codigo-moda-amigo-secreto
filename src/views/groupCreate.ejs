@@ -5,6 +5,9 @@
     <header>
         <%-include('./partials/header')%> 
     </header>
+    <p><% errors.array.forEach(element => {
+        <%= element%>
+    }); %></p>
     <form action="/group/create/" method="post" enctype="multipart/form-data">
         <label for="name">Nombre del grupo</label>
         <input type="text" name="groupName" id="name" required>
