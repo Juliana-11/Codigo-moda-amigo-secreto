@@ -38,6 +38,9 @@ module.exports = (Sequelize, dataTypes) => {
         },
         admin: {
             type: dataTypes.BOOLEAN,
+        },
+        group_id: {
+            type: dataTypes.INTEGER
         }
     }
 

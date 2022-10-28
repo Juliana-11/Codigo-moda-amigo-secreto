@@ -36,7 +36,7 @@ groupController = {
             discoveryDate: req.body.discoveryDate,
             discoveryDateDetail: req.body.discoveryDateDetail
             })
-            res.redirect('/')
+            res.redirect('/login')
         }else{
             let oldData = req.body
             res.render('groupCreate', {errors: errors.mapped(), oldData})

@@ -9,12 +9,12 @@ const {check} = require('express-validator');
 // Multer configuration
 let diskStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        let folder = path.resolve(__dirname, '.../public/groupPictures');
+        let folder = path.resolve(__dirname, '../../public/img');
         cb(null, folder);
     },
-    filename: (req, file, cb) => {
-        let imageName = Date.now + path.extname(file.originalname);
-        cb(null, imageName);
+    filename: (req, file, callback) => {
+        let imageName = Date.now() + "_img_" + path.extname(file.originalname)
+        callback(null, imageName);
     }
 })
 var upload = multer({storage: diskStorage});
