@@ -26,7 +26,7 @@ groupController = {
     // store: handles create information
     store: (req, res) => {
         let errors = validationResult(req);
-        if(errors){
+        if(errors.isEmpty()){
             db.Group.create({
             name: req.body.groupName,
             description: req.body.groupDescription,

@@ -48,7 +48,7 @@ module.exports = (Sequelize, dataTypes) => {
     
     const User = Sequelize.define(alias, cols, config);
 
-    /*User.associate = function(models){ 
+    User.associate = function(models){ 
         User.belongsToMany(models.Group, {
             as: "Group",
             through: "GroupMembers",
@@ -56,16 +56,15 @@ module.exports = (Sequelize, dataTypes) => {
             otherKey: "group_id",
             timestamps: false
         })
-        User.hasMany(models.Partner, {
-            as: "user_id1",
+        User.belongsTo(models.Group, {
+            as: "Member",
+            foreignKey: "group_id"
+        })
+        User.belongsTo(models.GroupMember, {
+            as: "usuarioPrueba",
             foreignKey: "idUsuario",
         })
-        User.hasMany(models.Partner, {
-            as: "user_id2",
-            foreignKey: "idUsuario",
-        })
-        
-    }*/
+    }
 
     return User;
 }

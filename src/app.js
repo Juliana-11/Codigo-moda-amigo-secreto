@@ -21,13 +21,10 @@ app.use(methodOverride('_method'));
 // routers
 const mainRouter = require('./routes/mainRoutes');
 const groupRouter = require('./routes/groupRoutes');
-const UserRouter = require('./routes/UserRoutes');
 
 // routes
 app.use('/', mainRouter);
 app.use('/group', groupRouter);
-// test
-app.use('/user', UserRouter)
 
 // error message
 app.use((req, res, next)=>{

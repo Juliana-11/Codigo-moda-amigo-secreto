@@ -70,8 +70,5 @@ router.post('/register', mainController.signIn);
 router.get('/login', mainController.login);
 router.post('/login/', mainController.session);
 
-    //Admin View
-router.get('/adminProfile', mainController.adminProfile);
-
 // Router export
 module.exports = router;

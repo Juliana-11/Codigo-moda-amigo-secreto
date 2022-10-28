@@ -5,15 +5,13 @@
     <header>
         <%-include('./partials/header')%> 
     </header>
-    <p><% errors.array.forEach(element => {
-        <%= element%>
-    }); %></p>
+   
     <form action="/group/create/" method="post" enctype="multipart/form-data">
-        <label for="name">Nombre del grupo</label>
-        <input type="text" name="groupName" id="name" required>
+        <label for="groupName">Nombre del grupo</label>
+        <input type="text" name="groupName" id="groupName" required>
 
-        <label for="description">Descripcion del grupo</label>
-        <input type="text" name="groupDescription" id="">
+        <label for="groupDescription">Descripcion del grupo</label>
+        <input type="text" name="groupDescription" id="groupDescription">
 
         <label for="groupPicture">Imagen del grupo</label>
         <input type="file" accept="png, jpg, jpeg" id= "groupPicture" name="groupPicture">

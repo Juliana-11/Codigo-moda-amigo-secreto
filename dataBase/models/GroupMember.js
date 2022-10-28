@@ -16,6 +16,11 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: true,
             type: dataTypes.INTEGER,
             allowNull: false,
+        },
+        partner: {
+            foreignKey: true,
+            type: dataTypes.INTEGER,
+            allowNull: false,
         }
     }
     let config = {
@@ -24,6 +29,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     const GroupMemeber = sequelize.define(alias, cols, config);
 
+    GroupMemeber.associate = function(models){
+        GroupMemeber.belongsTo(models.User, {
+            as: "usuarioPrueba*",
+            foreignKey: "partner",
+        })
+    }
 
     return GroupMemeber;
 }

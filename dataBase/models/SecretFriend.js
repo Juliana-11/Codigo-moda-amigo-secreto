@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Partner'
+    let alias = 'SecretFriend'
     let cols = {
         idSecretFriend: { 
             type: dataTypes.INTEGER,
@@ -7,7 +7,12 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true,
         },
-        user_id: {
+        user_id1: {
+            type: dataTypes.INTEGER,
+            foreignKey: true,
+            allowNull: false,
+        },
+        user_id2: {
             type: dataTypes.INTEGER,
             foreignKey: true,
             allowNull: false,
@@ -19,15 +24,15 @@ module.exports = (sequelize, dataTypes) => {
     }
     const SecretFriends = sequelize.define(alias, cols, config);
 
-    /*SecretFriends.associate = function(models){
+    SecretFriends.associate = function(models){
         SecretFriends.belongsTo(models.User, {
-            as: "userId1",
-            foreignKey: "user_id1",
+            as: "Partner1",
+            foreignKey: "idUsuario", 
         })
-        SecretFriends.belongsTo(models.User, {
-            as: "userId2",
+        /*SecretFriends.belongsTo(models.User, {
+            as: "Partner2",
             foreignKey: "user_id2",
-        })
-    }*/
+        })*/
+    }
     return SecretFriends;
 }

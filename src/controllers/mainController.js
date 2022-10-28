@@ -19,7 +19,9 @@ mainController = {
 
         let orderFriend =  Users.findByPk(req.params.id)
 
-        Promise.all([orderGroup, orderFriend])
+        Promise.all([orderGroup, orderFriend], {
+            include: ['']
+        })
             .then(([group, user])=>{
                 res.render('home', {group, user});
             })
@@ -124,13 +126,7 @@ mainController = {
     // session: processes login info
     session:  (req, res) =>{
 
-    },
-
-    
-    //AdminProfile: shows admins view
-    adminProfile: (req, res) => {
-        res.render('adminView')
-    },
+    }
 }
 // Controller export
 module.exports = mainController;
