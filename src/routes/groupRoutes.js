@@ -28,11 +28,13 @@ let validations = {
 
 // routes
 router.get('/', groupController.index);
+router.get('/:id', groupController.detail);
 router.get('/create', groupController.create);
 router.post('/create/', upload.single('groupPicture'), groupController.store);
 router.get('/edit/:id', groupController.edit);
 router.put('/edit/:id/', validations.groupCreation, groupController.update);
 router.delete('/edit/delete', groupController.delete);
+
 
 // router export
 module.exports = router;

@@ -8,7 +8,6 @@ const User = require('../../dataBase/models/User');
 //models
 const Groups = db.Group;
 const GroupMembers = db.GroupMember;
-const SecretFriends = db.SecretFriend;
 const Users = db.User;
 
 // Controller object
@@ -19,9 +18,7 @@ mainController = {
 
         let orderFriend =  Users.findByPk(req.params.id)
 
-        Promise.all([orderGroup, orderFriend], {
-            include: ['']
-        })
+        Promise.all([orderGroup, orderFriend])
             .then(([group, user])=>{
                 res.render('home', {group, user});
             })
@@ -76,15 +73,29 @@ mainController = {
     
     // register: shows registration form
     register: (req, res) => {
-       res.render('register')
+        Groups.findAll()
+        .then(groups => {
+            res.render('register', {groups})
+        })
     },
 
     // signIn: saves registration data
     signIn: (req, res) => {
-        let errors = validationResult(req)
+        Users.create({
+            name: req.body.firstName,
+            lastName: req.body.lastName,
+            userName: req.body.userAs,
+            password: bcrypt.hashSync(req.body.password, 10),
+            preferences: req.body.preferences,
+            dislikes: req.body.dislikes,
+            allergies: req.body.allergies,
+            group_id: req.body.group,
+        });
+
+        //let errors = validationResult(req)
 
         /*<<<< When error is empty >>>>*/
-        if(errors.isEmpty()){
+        /*if(errors.isEmpty()){
             Users.create({
                 name: req.body.firstName,
                 lastName: req.body.lastName,
@@ -96,7 +107,7 @@ mainController = {
             });
 
         /*<<<< Validation UserAs >>>>*/
-            let usedUser = false;
+            /*let usedUser = false;
             for (let i = 0; i < Users.length; i++) {
                 if(Users[i].userName === req.body.userAs){
                     usedUser = true
@@ -111,7 +122,7 @@ mainController = {
             }
 
         /*<<<< when error not empty >>>>*/
-        }else {
+        /*}else {
             res.render('/register', {errors: errors.mapped(), old: req.body});
         }
 

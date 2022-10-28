@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head', {title: 'Home'})%> 
+<body>
+    <%-include('./partials/header')%> 
+
+    <div>
+        <h2>Participantes</h2>
+       
+        <%  
+        let ids = [];
+        groupAndMembers.map(colectionGroupAndMembers =>{
+            ids.push(colectionGroupAndMembers.user_id)
+        }) 
+
+        for (let i = 0; i < allUsers.length; i++) { 
+            if (ids.includes(allUsers[i].idUsuario) == true) { %>
+                <div class="member">
+                    <p><%= allUsers[i].name %> <br></p>
+                </div>
+        <%  }
+        } 
+        %> 
+    </div>
+    <div class="secretFriendMgs" id="secretFriendMgs">
+        <div class="content">
+            <div class="content-text">
+                <h3>Tu amigo secreto es ...</h3>
+
+                    <script src="../../public/js/groupIndex.js">
+                    </script>
+
+                <a href="#">Ver su perfil</a>
+            </div>
+            <div class="content-buttons">
+                <a href="#" id="close-button">Cerrar</a>
+            </div>
+        </div>
+    </div>
+    <%-include('./partials/footer')%> 
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head', {title: "Grupos"})%> 
+<body>
+    <%-include('./partials/header')%> 
+
+    <div class="containerGroups">
+        <% for( let i = 0; i < groups.length; i++ ) { %>
+            <div class="containerGroup">
+                <p>Nombre de grupo</p>
+                <p style="width: 100%;"><%= groups[i].nameGroup %></p>
+                <a href="/group/<%= groups[i].idGroup %> " class="goToDetail">Ver mas</a>
+            </div>
+        <% } %>
+    </div>
+
+    <%-include('./partials/footer')%> 
+</body>
+</html>

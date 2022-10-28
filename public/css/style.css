@@ -1,7 +1,74 @@
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PARTIALS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 /*Header*/
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADMINVIEW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GROUPCREATE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GROUPEDIT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GROUPINDEX >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.containerGroups{
+    margin: 20px;
+    padding: 20px;
+    border: solid 2px white; 
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.containerGroup{
+    background-color: gray;
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.goToDetail{
+    background-color: bisque;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PROVICIONAL >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.member{
+    background-color: gray;
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    margin: 20px;
+    border-radius: 5px;
+}
+.secretFriendMgs{
+    background: rgba(33, 41, 52, .85);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+}
+.secretFriendMgs .content {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 600px;
+    min-width: 320px !important;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< EDIT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 

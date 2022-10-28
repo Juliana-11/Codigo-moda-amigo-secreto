@@ -11,6 +11,7 @@
         <div>
             <h2>Perfil de:  <%= user.name + " " + user.lastName %></h2> 
         </div>
+        <p>numero de usuario: <%= user.idUsuario %> </p>
         <a href="/profileEdit/<%=user.idUsuario%> "><button>Editar</button></a>
         <form action="/profile/delete/<%= user.idUsuario %>" method="post"><button type="submit">Eliminar</button></form>
     </div>

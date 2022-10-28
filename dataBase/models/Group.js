@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false,
             type: dataTypes.INTEGER
         },
-        name: {
+        nameGroup: {
             type: dataTypes.STRING ,
             allowNull: false,
             unique: true
