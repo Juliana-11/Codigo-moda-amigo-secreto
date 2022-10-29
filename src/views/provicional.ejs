@@ -4,39 +4,31 @@
 <body>
     <%-include('./partials/header')%> 
 
-    <div>
+    <div >
         <h2>Participantes</h2>
-       
-        <%  
-        let ids = [];
-        groupAndMembers.map(colectionGroupAndMembers =>{
-            ids.push(colectionGroupAndMembers.user_id)
-        }) 
+        <% let ids = []; %> 
+        <% groupAndMembers.map(colectionGroupAndMembers =>{ %> 
+            <% ids.push(colectionGroupAndMembers.user_id)%>  
+        <% }) %> 
 
-        for (let i = 0; i < allUsers.length; i++) { 
-            if (ids.includes(allUsers[i].idUsuario) == true) { %>
-                <div class="member">
-                    <p><%= allUsers[i].name %> <br></p>
-                </div>
-        <%  }
-        } 
-        %> 
-    </div>
-    <div class="secretFriendMgs" id="secretFriendMgs">
-        <div class="content">
-            <div class="content-text">
-                <h3>Tu amigo secreto es ...</h3>
+        <% let names = []; %> 
+        <%for (let i = 0; i < allUsers.length; i++) { %> 
+            <% if (ids.includes(allUsers[i].idUsuario) == true) { %> 
+                <% names.push(allUsers[i].name)%> 
+            <% }} %> 
 
-                    <script src="../../public/js/groupIndex.js">
-                    </script>
-
-                <a href="#">Ver su perfil</a>
+        <% for( let i = 0; i < names.length; i++ ) { %>
+            <div class="member">
+                <p><%= names[i] %> <br> </p>
             </div>
-            <div class="content-buttons">
-                <a href="#" id="close-button">Cerrar</a>
-            </div>
-        </div>
+        <% } %>
+    </div> 
+
+    <div>
+        <% let random = Math.floor(Math.random() * ids.length)%>
+        <p>Tu amigo secreto es: <%= names[random] %></p>
     </div>
+
     <%-include('./partials/footer')%> 
 </body>
 </html>
