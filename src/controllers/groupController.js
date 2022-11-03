@@ -27,7 +27,7 @@ groupController = {
     },
     // create: renders group creation form
     create: (req, res) => {
-        res.render('groupCreate');
+        res.render('groupcreate');
     },
     // store: handles create information
     store: (req, res) => {   

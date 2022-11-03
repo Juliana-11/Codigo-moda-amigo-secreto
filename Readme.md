@@ -12,9 +12,8 @@
     - npm run start
 
 4.  Application functionality
-    1. Create a froup
-    2. Register a user
-    3. view the created group and access its participants
-
-    In maintenance:
-    - Store your random draw which is already running
+    1. Create a group (/group/create)
+    2. Register a user(/register)
+    3. view the created group and access its participants 
+        - (/group) show the groups 
+        - in "ver más" access its participants

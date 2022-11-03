@@ -1,5 +1,139 @@
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< IMPORT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PARTIALS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1{
+    font-family: 'Lobster', cursive;
+}
+
 /*Header*/
+.headerStyle{
+    background-color: #02253d;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+.containerLogo{
+    width: 20%;
+    max-width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 5px;
+}
+.containerLogo img{
+    width: 100%;
+
+}
+.namelogo{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 15px;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+.part1{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+}
+.part1 select, .part1 select option{
+    border-radius: 5px;
+    font-family: 'Caveat Brush', cursive;
+
+}
+.part2{
+    display: none;
+    width: 70%;
+    align-self: center;
+    
+}
+.navBar ul li{
+    display: inline;
+}
+.navBar ul li a{
+    color: white;
+    border-left: solid white 1.5px;
+    padding: 2px;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 19px;
+    justify-content: flex-end;
+    text-decoration: none;
+}
+
+/*Footer*/
+.styleFooter{
+    background-color: #557996;
+    text-align: center;
+    padding: 20px;
+}
+.navBarFooter{
+    width: 99%;
+    margin: 10px;
+    padding: 10px;
+}
+.navBarFooter ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.navBarFooter ul li{
+    display: inline;
+    text-align: center;
+    margin: 5px;
+}
+.navBarFooter ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Caveat Brush', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+.redes{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.redes2{
+    width:25%;
+    border-top: white 2px solid;
+    text-align: center;
+}
+.redes i{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+}
+.endFooter{
+    color: white;
+    font-family: 'Caveat Brush', cursive;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.welcome{
+    margin: 20px;
+    width: 98%;
+    text-align: center;
+    border: solid 2px black;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< INSTRUCTIONS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.styleInstruction{
+    text-align: center;
+}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GROUPCREATE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
@@ -60,6 +194,9 @@
     flex-wrap: wrap;
     width: 300px;
 }
+.containerLogin input{
+    width: 100%;
+}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PROFILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .containerProfile{
@@ -76,8 +213,55 @@
     flex-wrap: wrap;
     margin: 20px;
     padding: 20px;
+    width: 50%;
+
 }
 
-.formRegister, label, input{
-    width: 50%;
+.formRegister input, .formRegister textarea{
+    width: 100%;
+}
+
+.itemRegister{
+    width: 100%;
+}
+
+.formControlRegister{
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.is-invalid{
+    border: red solid 1px;
+}
+.errorRegister{
+    width: 90%;
+    color: red;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+@media(min-width: 560px){
+    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PARTIALS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    /*Header*/ 
+    .part1{
+        display: none;
+    }
+    .part2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media(min-width: 785px){
+    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PARTIALS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    /*Header*/ 
+    .part2{
+        width: 50%;
+    }
+    
+}
+
+@media(min-width: 1010px){
+    .navBar ul li a{
+        font-size: 25px;
+    }
 }
